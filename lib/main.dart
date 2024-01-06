@@ -29,13 +29,17 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
         title: 'Flutter Demo',
         theme: ThemeData(
-            fontFamily: 'Lato',
-            colorScheme: ColorScheme.fromSwatch(
-              backgroundColor: Colors.white,
-              cardColor: Colors.purple,
-              primarySwatch: Colors.purple,
-              accentColor: Colors.deepOrange,
-            )),
+          fontFamily: 'Lato',
+          colorScheme: ColorScheme.fromSwatch(
+            backgroundColor: Colors.white,
+            cardColor: Colors.purple,
+            primarySwatch: Colors.purple,
+            accentColor: Colors.deepOrange,
+          ),
+          primaryTextTheme: const TextTheme(
+            headlineMedium: TextStyle(color: Colors.white),
+          ),
+        ),
         home: const ProductOverviewPage(),
         routes: {
           AppRoutes.PRODUCT_DETAIL: (ctx) => const ProductDetailPage(),
