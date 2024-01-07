@@ -8,6 +8,7 @@ class CartPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final Cart cart = Provider.of(context);
+    final items = cart.items.values.toList();
     return Scaffold(
       appBar: AppBar(
         title: const Text("Carrinho"),
@@ -42,18 +43,24 @@ class CartPage extends StatelessWidget {
                 ),
                 const Spacer(),
                 TextButton(
-                  child: const Text('COMPRAR'),
                   style: TextButton.styleFrom(
                     textStyle: TextStyle(
                       color: Theme.of(context).primaryColor,
                     ),
                   ),
                   onPressed: () {},
+                  child: const Text('COMPRAR'),
                 )
               ],
             ),
           ),
-        )
+        ),
+        Expanded(
+          child: ListView.builder(
+            itemCount: items.length,
+            itemBuilder: (ctx, i) => Text(items[i].name),
+          ),
+        ),
       ]),
     );
   }
