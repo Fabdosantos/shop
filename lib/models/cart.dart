@@ -17,7 +17,7 @@ class Cart with ChangeNotifier {
   double get totalAmount {
     double total = 0.0;
     _items.forEach((key, cartItem) {
-      total += cartItem.price * cartItem.quality;
+      total += cartItem.price * cartItem.quantity;
     });
     return total;
   }
@@ -30,7 +30,7 @@ class Cart with ChangeNotifier {
             id: existingItem.id,
             productId: existingItem.id,
             name: existingItem.name,
-            quality: existingItem.quality + 1,
+            quantity: existingItem.quantity + 1,
             price: existingItem.price),
       );
     } else {
@@ -40,7 +40,7 @@ class Cart with ChangeNotifier {
             id: Random().toString(),
             productId: product.id,
             name: product.name,
-            quality: 1,
+            quantity: 1,
             price: product.price),
       );
     }
